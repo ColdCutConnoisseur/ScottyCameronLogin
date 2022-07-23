@@ -7,8 +7,8 @@ import time
 import logging
 import logging.config
 
-from PyQt6.QtCore import Qt, QThread, QTimer, QObject, pyqtSignal
-from PyQt6.QtWidgets import (QApplication,
+from PyQt5.QtCore import Qt, QThread, QTimer, QObject, pyqtSignal
+from PyQt5.QtWidgets import (QApplication,
                              QMainWindow,
                              QLabel,
                              QLineEdit,
