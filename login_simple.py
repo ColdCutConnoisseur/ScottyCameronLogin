@@ -2,6 +2,7 @@
 
 import os
 import time
+import getpass
 
 import undetected_chromedriver as uc
 
@@ -21,7 +22,6 @@ def login_user(username, password):
     wait = WebDriverWait(driver, 10)
     page_reached = wait.until(ec.url_to_be(LOGIN_URL))
 
-    #USERNAME
     username_input = driver.find_element(By.XPATH, "//input[@id='login_username']")
     username_input.send_keys(username)
 
@@ -36,3 +36,8 @@ def login_user(username, password):
     print("Sleep exited")
 
 
+if __name__ == "__main__":
+    UN = input("Please enter your username:")
+    PW = getpass.getpass("Please enter your password:")
+
+    login_user(UN, PW)

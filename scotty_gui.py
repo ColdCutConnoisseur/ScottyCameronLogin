@@ -1,14 +1,12 @@
-"""GUI for test login process"""
-
+"""GUI for testing login process"""
 
 import sys
 import os
 import time
-import logging
-import logging.config
+from multiprocessing import freeze_support
 
-from PyQt5.QtCore import Qt, QThread, QTimer, QObject, pyqtSignal
-from PyQt5.QtWidgets import (QApplication,
+from PyQt6.QtCore import Qt, QThread, QTimer, QObject, pyqtSignal
+from PyQt6.QtWidgets import (QApplication,
                              QMainWindow,
                              QLabel,
                              QLineEdit,
@@ -41,6 +39,7 @@ class LoginGUI(QMainWindow):
 
         combined_layout = QGridLayout()
 
+        #Set widgets in grid
         combined_layout.addWidget(username_label, 0 ,0)
         combined_layout.addWidget(self.username_line_edit, 0, 1)
         combined_layout.addWidget(password_label, 1, 0)
@@ -48,7 +47,6 @@ class LoginGUI(QMainWindow):
         combined_layout.addWidget(run_button, 2, 1)
 
         central_widget.setLayout(combined_layout)
-
         self.setCentralWidget(central_widget)
 
     def on_run_button_pressed(self):
@@ -61,6 +59,7 @@ class LoginGUI(QMainWindow):
 
 
 if __name__ == "__main__":
+    freeze_support()              #Correct multiprocess collision with pyinstaller / uc
     app = QApplication(sys.argv)
 
     window = LoginGUI()
